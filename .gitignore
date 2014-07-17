@@ -1,0 +1,8 @@
+# Ignore everything but the .py files, app.yaml and static and templates folders
+/*
+!/*.py
+!/app.yaml
+!/static
+!/templates
+!/.gitignore
+!/.git
