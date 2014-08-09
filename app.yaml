@@ -14,7 +14,7 @@ handlers:
   upload: templates/index.html
 # Endpoints handler
 - url: /_ah/spi/.*
-  script: emergencycall_api.application
+  script: chamada_api.application
 
 libraries:
 - name: pycrypto

@@ -22,6 +22,7 @@ class Chamada(EndpointsModel):
                                    ANDROID_CLIENT_ID,
                                    endpoints.API_EXPLORER_CLIENT_ID],
                 audiences=[ANDROID_AUDIENCE],
+                scopes=[endpoints.EMAIL_SCOPE],
                 description='API para chamadas de emergencia')
 class ChamadaApi(remote.Service):
 
@@ -30,12 +31,11 @@ class ChamadaApi(remote.Service):
                     path='chamada')
     def insertChamada(self, chamada):
 
-        Chamada.vitima = endpoints.get_current_user();
+        chamada.vitima = endpoints.get_current_user();
         chamada.put()
         return chamada
 
-    @Chamada.query_method(query_fields=('local'),
-                          name='chamada.list',
+    @Chamada.query_method(name='chamada.list',
                           path='chamadas')
     def listChamada(self, query):
         return query
